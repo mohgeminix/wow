@@ -387,7 +387,8 @@ function lookup(){
   if(!bc){card.classList.add('hidden');man.classList.add('hidden');return}
   var hit=CAT[bc];
   if(hit){curHit=hit;
-    card.innerHTML='<b>✓ '+hit[0].replace(/</g,'&lt;')+'</b><br><span class="small">SKU: '+hit[1]+' · '+bc+'</span>';
+    var stq=(hit.length>3&&hit[3]!==''&&hit[3]!=null)?' · <b>GMX stock: '+hit[3]+'</b>':'';
+    card.innerHTML='<b>✓ '+hit[0].replace(/</g,'&lt;')+'</b><br><span class="small">SKU: '+hit[1]+' · '+bc+stq+'</span>';
     card.style.background='';card.classList.remove('hidden');man.classList.add('hidden');
     $('price').value = hit[2]>0? hit[2] : '';
   }else{
